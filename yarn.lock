@@ -5507,6 +5507,11 @@ pify@^2.2.0:
   resolved "https://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
 
+pinia@^2.0.0-alpha.10:
+  version "2.0.0-alpha.10"
+  resolved "https://registry.npm.taobao.org/pinia/download/pinia-2.0.0-alpha.10.tgz#17fb0849c2b3608e533844cf84fce81d497ef496"
+  integrity sha1-F/sIScKzYI5TOETPhPzoHUl+9JY=
+
 pirates@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npm.taobao.org/pirates/download/pirates-4.0.1.tgz#643a92caf894566f91b2b986d2c66950a8e2fb87"

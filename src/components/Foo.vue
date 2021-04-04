@@ -1,7 +1,6 @@
 <template>
   <div>
-    foo -----------------
-
+    foo ----------------- userStore: {{ userStore.name }}
     <button @click="handleLogin">login</button>
     <button @click="handleGetUser">get user</button>
     <Bar></Bar>
@@ -10,6 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useUserStore } from "@/store";
 import Bar from "@/components/Bar.vue";
 
 export default defineComponent({
@@ -17,6 +17,8 @@ export default defineComponent({
     Bar,
   },
   setup() {
+    const userStore = useUserStore();
+
     const handleLogin = () => {
       fetch("/login", {
         method: "POST",
@@ -32,6 +34,7 @@ export default defineComponent({
     };
 
     return {
+      userStore,
       handleLogin,
       handleGetUser,
     };

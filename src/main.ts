@@ -1,10 +1,11 @@
 import { createApp } from "vue";
 import { router } from "./router";
-import { store } from "./store";
+import { createPinia } from "pinia";
+
 import App from "./App.vue";
 
 // init mock api
 import { worker } from "./mocks/browser";
 worker.start();
 
-createApp(App).use(router).use(store).mount("#app");
+createApp(App).use(router).use(createPinia()).mount("#app");
