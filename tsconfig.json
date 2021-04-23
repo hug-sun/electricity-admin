@@ -8,6 +8,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true,
     "lib": ["esnext", "dom"],
     "types": ["vite/client", "jest", "@types/testing-library__jest-dom"],
     "baseUrl": ".",

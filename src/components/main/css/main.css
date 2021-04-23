@@ -1,0 +1,82 @@
+.main .logo-con {
+  height: 64px;
+  padding: 10px;
+}
+.main .logo-con img {
+  height: 50px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+.main .header-con {
+  background: #fff;
+  padding: 0 20px 0 0px;
+  width: 100%;
+}
+.main .main-layout-con {
+  height: 100%;
+  overflow: hidden;
+}
+.main .main-content-con {
+  height: calc(100% - 60px);
+  overflow: hidden;
+}
+.main .tag-nav-wrapper {
+  padding: 0;
+  height: 40px;
+}
+.main .content-wrapper {
+  padding: 18px;
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+.main .left-sider .ivu-layout-sider-children {
+  overflow-y: scroll;
+  margin-right: -18px;
+  overflow-x: hidden;
+}
+.open-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.ivu-menu-item > i {
+  margin-right: 12px !important;
+}
+.ivu-menu-submenu > .ivu-menu > .ivu-menu-item > i {
+  margin-right: 8px !important;
+}
+.collased-menu-dropdown {
+  width: 100%;
+  margin: 0;
+  line-height: normal;
+  padding: 7px 0 6px 16px;
+  clear: both;
+  font-size: 12px !important;
+  white-space: nowrap;
+  list-style: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+.collased-menu-dropdown:hover {
+  background: rgba(100, 100, 100, 0.1);
+}
+.collased-menu-dropdown * {
+  color: #515a6e;
+}
+.collased-menu-dropdown .ivu-menu-item > i {
+  margin-right: 12px !important;
+}
+.collased-menu-dropdown .ivu-menu-submenu > .ivu-menu > .ivu-menu-item > i {
+  margin-right: 8px !important;
+}
+.ivu-select-dropdown.ivu-dropdown-transfer {
+  max-height: 400px;
+}
