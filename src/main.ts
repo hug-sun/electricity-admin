@@ -8,4 +8,5 @@ import App from "./App.vue";
 // init mock api
 import { worker } from "./mocks/browser";
 worker.start();
+
 createApp(App).use(router).use(createPinia()).use(Element3).mount("#app");
