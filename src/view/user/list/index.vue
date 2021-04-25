@@ -247,7 +247,12 @@
 
       <!-- 用户数据列表 -->
       <el-table
-        :data="userLists"
+        :data="
+          userLists.slice(
+            (userFrom.page - 1) * userFrom.limit,
+            userFrom.page * userFrom.limit
+          )
+        "
         style="width: 100%"
         empty-text="暂无数据"
         :highlight-current-row="true"
@@ -347,8 +352,8 @@
       <!-- 分页 -->
       <div class="acea-row row-right page">
         <el-pagination
-          :current-page="1"
-          :page-size="10"
+          v-model:current-page="userFrom.page"
+          :page-size="userFrom.limit"
           layout="total, prev, pager, next, jumper"
           :total="userLists.length"
           :small="true"
@@ -562,10 +567,14 @@ export default defineComponent({
 
     const handleSizeChange = (size: number) => {
       console.log(`每页 ${size} 条`);
+      selectionList.value = [];
+      userFrom.page = size;
+      getList();
     };
 
     const handleCurrentChange = (page: number) => {
       console.log(`当前页: ${page}`);
+      userFrom.page = page;
     };
 
     const addressData = city;
@@ -596,7 +605,7 @@ export default defineComponent({
       province: "",
       city: "",
       page: 1,
-      limit: 10,
+      limit: 2,
       group_id: "",
       field_key: "",
     });
@@ -646,7 +655,7 @@ export default defineComponent({
       userFrom.label_id = "";
       userFrom.isMember = "";
       userFrom.page = 1;
-      userFrom.limit = 10;
+      userFrom.limit = 2;
 
       field_key.value = "";
       group_id.value = "";

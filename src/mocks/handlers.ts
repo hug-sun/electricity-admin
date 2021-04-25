@@ -197,8 +197,109 @@ let allData = [
     labels: "B类客户,意向客户",
     isMember: 0,
   },
+  {
+    uid: 5,
+    real_name: "haha",
+    card_id: "621621199803194320",
+    mark: "4",
+    partner_id: 0,
+    group_id: "小客户",
+    nickname: "uid5",
+    avatar:
+      "http://kaifa.crmeb.net/uploads/attach/2019/08/20190807/723adbdd4e49a0f9394dfc700ab5dba3.png",
+    phone: "18552956666",
+    add_time: 1619000990,
+    last_time: 0,
+    now_money: "0.00",
+    brokerage_price: "0.00",
+    integral: 0,
+    exp: "6.00",
+    sign_num: 0,
+    status: "正常",
+    level: 0,
+    spread_uid: 0,
+    spread_time: 0,
+    user_type: "routine",
+    is_promoter: 1,
+    pay_count: 0,
+    spread_count: 0,
+    addres: "上海",
+    adminid: 0,
+    login_type: "",
+    record_phone: "0",
+    is_money_level: 0,
+    is_ever_level: 0,
+    overdue_time: 0,
+    uniqid: "",
+    country: null,
+    province: null,
+    city: null,
+    sex: "男",
+    unionid: null,
+    openid: null,
+    w_user_type: null,
+    groupid: null,
+    tagid_list: null,
+    subscribe: null,
+    subscribe_time: null,
+    vip_name: false,
+    labels: "B类客户,意向客户",
+    isMember: 0,
+  },
+  {
+    uid: 6,
+    real_name: "haha",
+    card_id: "621621199803194320",
+    mark: "6",
+    partner_id: 0,
+    group_id: "小客户",
+    nickname: "uid6",
+    avatar:
+      "http://kaifa.crmeb.net/uploads/attach/2019/08/20190807/723adbdd4e49a0f9394dfc700ab5dba3.png",
+    phone: "18552956666",
+    add_time: 1619000990,
+    last_time: 0,
+    now_money: "0.00",
+    brokerage_price: "0.00",
+    integral: 0,
+    exp: "6.00",
+    sign_num: 0,
+    status: "正常",
+    level: 0,
+    spread_uid: 0,
+    spread_time: 0,
+    user_type: "routine",
+    is_promoter: 1,
+    pay_count: 0,
+    spread_count: 0,
+    addres: "上海",
+    adminid: 0,
+    login_type: "",
+    record_phone: "0",
+    is_money_level: 0,
+    is_ever_level: 0,
+    overdue_time: 0,
+    uniqid: "",
+    country: null,
+    province: null,
+    city: null,
+    sex: "男",
+    unionid: null,
+    openid: null,
+    w_user_type: null,
+    groupid: null,
+    tagid_list: null,
+    subscribe: null,
+    subscribe_time: null,
+    vip_name: false,
+    labels: "B类客户,意向客户",
+    isMember: 0,
+  },
 ];
 let resData: any[] = [];
+interface bodyValue {
+  uid: string | number;
+}
 
 export const handlers = [
   rest.post("/login", (req, res, ctx) => {
@@ -279,7 +380,6 @@ export const handlers = [
         searchParams.field_key == "uid" ||
         searchParams.field_key == ""
       ) {
-        // console.log("uid");
         resData = allData.filter((item) => {
           return item.uid == searchParams.nickname;
         });
@@ -287,7 +387,6 @@ export const handlers = [
         searchParams.field_key == "phone" ||
         searchParams.field_key == ""
       ) {
-        console.log("phone");
         resData = allData.filter((item) => {
           return item.phone == searchParams.nickname;
         });
@@ -357,14 +456,11 @@ export const handlers = [
   }),
 
   // 修改用户数据
-  rest.post("/user/changeUserData", (req, res, ctx) => {
-    console.log("修改了数据", req.body);
+  rest.post<bodyValue>("/user/changeUserData", (req, res, ctx) => {
     const { uid } = req.body;
-    console.log(uid);
 
     allData = allData.map((item) => {
       if (item.uid == uid) {
-        console.log(item);
         Object.assign(item, req.body);
       }
       return item;
@@ -380,5 +476,3 @@ export const handlers = [
     );
   }),
 ];
-
-console.log(allData);
