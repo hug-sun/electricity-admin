@@ -2052,8 +2052,6 @@ astral-regex@^2.0.0:
 
 async-validator@^3.5.1:
   version "3.5.1"
-  resolved "https://registry.npm.taobao.org/async-validator/download/async-validator-3.5.1.tgz?cache=0&sync_timestamp=1605751734916&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fasync-validator%2Fdownload%2Fasync-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
-  integrity sha1-zWK5aIskZfSEIOJ620d2CrG1VZ8=
   resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
   integrity sha512-DDmKA7sdSAJtTVeNZHrnr2yojfFaoeW8MfQN8CeuXg8DDQHTqKk9Fdv38dSvnesHoO8MUwMI2HphOeSyIF+wmQ==
 
@@ -2089,8 +2087,6 @@ aws4@^1.8.0:
 
 axios@^0.21.1:
   version "0.21.1"
-  resolved "https://registry.npm.taobao.org/axios/download/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
-  integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
@@ -3018,12 +3014,10 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.npm.taobao.org/elegant-spinner/download/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
-element3@^0.0.40:
+element3@0.0.40:
   version "0.0.40"
   resolved "https://registry.npm.taobao.org/element3/download/element3-0.0.40.tgz#d54d1d530ed3d0fe9e7812718eb6ca1e388243bc"
   integrity sha1-1U0dUw7T0P6eeBJxjrbKHjiCQ7w=
-  resolved "https://registry.yarnpkg.com/element3/-/element3-0.0.40.tgz#d54d1d530ed3d0fe9e7812718eb6ca1e388243bc"
-  integrity sha512-fu+I229HCaAaU76iISeCO6uEaDLusQOz+Il0R7Dp/gn4JDc5ts2NOvsQaxkGvCJ6qEA0o7vPaCnnpa3rvxAVBg==
   dependencies:
     async-validator "^3.5.1"
     lodash-es "^4.17.20"
@@ -3546,8 +3540,6 @@ flatted@^3.1.0:
 
 follow-redirects@^1.10.0:
   version "1.13.3"
-  resolved "https://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
-  integrity sha1-5VmK1QF0wbxOhyMB6CrCzZf5Amc=
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
   integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
 
@@ -4960,8 +4952,6 @@ locate-path@^5.0.0:
 
 lodash-es@^4.17.20:
   version "4.17.21"
-  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.21.tgz?cache=0&sync_timestamp=1613836280924&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash-es%2Fdownload%2Flodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
-  integrity sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
@@ -5191,8 +5181,6 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
 
 mitt@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npm.taobao.org/mitt/download/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
-  integrity sha1-90BXfCMXbGIFsSGylzUU6t4bIjA=
   resolved "https://registry.yarnpkg.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
   integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
 
@@ -5388,7 +5376,6 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
 
 normalize-wheel@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
   resolved "https://registry.yarnpkg.com/normalize-wheel/-/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
   integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
@@ -5664,10 +5651,10 @@ pify@^4.0.1:
   resolved "https://registry.npm.taobao.org/pify/download/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
 
-pinia@^2.0.0-alpha.10:
-  version "2.0.0-alpha.10"
-  resolved "https://registry.npm.taobao.org/pinia/download/pinia-2.0.0-alpha.10.tgz#17fb0849c2b3608e533844cf84fce81d497ef496"
-  integrity sha1-F/sIScKzYI5TOETPhPzoHUl+9JY=
+pinia@^2.0.0-alpha.13:
+  version "2.0.0-alpha.16"
+  resolved "https://registry.nlark.com/pinia/download/pinia-2.0.0-alpha.16.tgz#0693b2260603a7d701fe3fa0e84bbec535746ad1"
+  integrity sha1-BpOyJgYDp9cB/j+g6Eu+xTV0atE=
 
 pirates@^4.0.1:
   version "4.0.1"
@@ -6068,8 +6055,6 @@ require-main-filename@^2.0.0:
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"
-  resolved "https://registry.npm.taobao.org/resize-observer-polyfill/download/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
@@ -6732,8 +6717,6 @@ throat@^5.0.0:
 
 throttle-debounce@^3.0.1:
   version "3.0.1"
-  resolved "https://registry.npm.taobao.org/throttle-debounce/download/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
-  integrity sha1-MvlNhN+olPeGyaHykOemRbahmrs=
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
   integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
 
