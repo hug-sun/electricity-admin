@@ -1,8 +1,8 @@
-import Index from "@/view/index/Index.vue";
+import BasicLayout from "@/components/main/main";
 const orderRoutes = [
   {
     path: "/admin/home",
-    component: Index,
+    component: BasicLayout,
     children: [
       {
         path: "/order",
