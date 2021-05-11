@@ -5678,9 +5678,9 @@ pify@^4.0.1:
   integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
 
 pinia@^2.0.0-alpha.13:
-  version "2.0.0-alpha.13"
-  resolved "https://registry.npm.taobao.org/pinia/download/pinia-2.0.0-alpha.13.tgz#d48e6efec11d38201e20770bc02b168e2157a9f7"
-  integrity sha1-1I5u/sEdOCAeIHcLwCsWjiFXqfc=
+  version "2.0.0-alpha.16"
+  resolved "https://registry.nlark.com/pinia/download/pinia-2.0.0-alpha.16.tgz#0693b2260603a7d701fe3fa0e84bbec535746ad1"
+  integrity sha1-BpOyJgYDp9cB/j+g6Eu+xTV0atE=
 
 pirates@^4.0.1:
   version "4.0.1"

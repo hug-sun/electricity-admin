@@ -17,5 +17,8 @@ module.exports = {
     ecmaVersion: 2021,
   },
   plugins: [],
-  rules: {},
+  rules: {
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+  },
 };
