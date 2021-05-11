@@ -380,5 +380,3 @@ export const handlers = [
     );
   }),
 ];
-
-console.log(allData);

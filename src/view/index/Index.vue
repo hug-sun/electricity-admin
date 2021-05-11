@@ -25,7 +25,12 @@
                 <span>商品</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item
+                <template v-for="product in productRouter" :key="product.path">
+                  <el-menu-item :index="product.path">
+                    <p>{{ product.meta.title }}</p>
+                  </el-menu-item>
+                </template>
+                <!-- <el-menu-item
                   index="2-1"
                   :route="{ path: '/product/product_list' }"
                   >商品管理</el-menu-item
@@ -36,7 +41,7 @@
                   >商品分类</el-menu-item
                 >
                 <el-menu-item index="2-3">商品规格</el-menu-item>
-                <el-menu-item index="2-4">商品评论</el-menu-item>
+                <el-menu-item index="2-4">商品评论</el-menu-item> -->
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="3">
@@ -65,18 +70,19 @@
     </el-aside>
     <el-container>
       <el-header>Header</el-header>
-      <OrderList></OrderList>
+      <router-view></router-view>
+      <!-- <OrderList></OrderList> -->
     </el-container>
   </el-container>
 </template>
 
 <script>
-import OrderList from "../order/List.vue";
-import { ref } from "vue";
+// import OrderList from "../order/List.vue";
+import product from "@/router/modules/product";
+import { ref, computed } from "vue";
 export default {
-  components: {
-    OrderList,
-  },
+  // components: {
+  // },
   setup() {
     let defaultOpeneds = ref(["1", "1-4"]);
 
@@ -86,8 +92,19 @@ export default {
     function handleClose(key, keyPath) {
       console.log(key, keyPath);
     }
-
-    return { defaultOpeneds, handleOpen, handleClose };
+    // 商品管理路由信息
+    const products = ref(product);
+    const productRouter = computed(() => {
+      return products.value.filter((item) => {
+        return item.name !== "product";
+      });
+    });
+    return {
+      defaultOpeneds,
+      handleOpen,
+      handleClose,
+      productRouter,
+    };
   },
 };
 </script>

@@ -1,19 +1,13 @@
 <template>
   <div>
-    router-view
-    <Foo></Foo>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Foo from "@/components/Foo.vue";
 export default defineComponent({
   name: "App",
-  components: {
-    Foo,
-  },
 });
 </script>
 
@@ -31,9 +25,16 @@ body {
 #app {
   .size;
 }
-
 // 设置级联选择器的高度
 .el-cascader-menu {
   height: 300px;
+}
+
+// contain 样式修改
+#app .el-main {
+  line-height: 0;
+}
+.article-manager {
+  padding: 0 20px;
 }
 </style>
