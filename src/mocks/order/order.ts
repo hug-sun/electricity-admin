@@ -100,6 +100,9 @@ let orderData = [
     integral: 0,
   },
 ];
+interface bodyValue {
+  orderID: string;
+}
 export const orderHandlers = [
   rest.post("/login", (req, res, ctx) => {
     // Persist user's authentication in the session
@@ -135,7 +138,7 @@ export const orderHandlers = [
       ctx.json({ orderData, totalLength: orderData.length })
     );
   }),
-  rest.post("/changeOrderData", (req, res, ctx) => {
+  rest.post<bodyValue>("/changeOrderData", (req, res, ctx) => {
     const { orderID } = req.body;
     orderData = orderData.map((item) => {
       if (orderID === item.orderID) {

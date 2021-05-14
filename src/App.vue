@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- router-view
+    <Foo></Foo> -->
     <router-view></router-view>
   </div>
 </template>

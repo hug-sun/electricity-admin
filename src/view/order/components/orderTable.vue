@@ -252,7 +252,7 @@ export default {
       state.dialogData = dialogData;
       state.dialogVisible = true;
     };
-    const handleChange = (value) => {
+    const handleChange = (value: string) => {
       console.log(value);
     };
     const changeCurrentOrder = () => {
@@ -267,11 +267,11 @@ export default {
         totalLength.value = data.totalLength;
       });
     });
-    const handleSizeChange = (size) => {
+    const handleSizeChange = (size: string) => {
       console.log(`每页 ${size} 条`);
     };
 
-    const handleCurrentChange = (page) => {
+    const handleCurrentChange = (page: string) => {
       console.log(`当前页: ${page}`);
     };
     const cellClick = (row) => {
