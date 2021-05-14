@@ -76,8 +76,8 @@
   </el-container>
 </template>
 
-<script>
-// import OrderList from "../order/List.vue";
+<script lang="ts">
+//import OrderList from "../order/List.vue";
 import product from "@/router/modules/product";
 import { ref, computed } from "vue";
 export default {
@@ -86,10 +86,10 @@ export default {
   setup() {
     let defaultOpeneds = ref(["1", "1-4"]);
 
-    function handleOpen(key, keyPath) {
+    function handleOpen(key: number, keyPath: string) {
       console.log(key, keyPath);
     }
-    function handleClose(key, keyPath) {
+    function handleClose(key: number, keyPath: string) {
       console.log(key, keyPath);
     }
     // 商品管理路由信息
