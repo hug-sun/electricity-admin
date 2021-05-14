@@ -285,14 +285,9 @@
             </el-form>
           </template>
         </el-table-column>
-        <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column
-          label="ID"
-          prop="uid"
-          width="55"
-          align="center"
-        ></el-table-column>
-        <el-table-column label="头像" width="120" align="center">
+        <el-table-column type="selection"></el-table-column>
+        <el-table-column label="ID" prop="uid" align="center"></el-table-column>
+        <el-table-column label="头像" align="center">
           <template #default="scope">
             <img :src="scope.row.avatar" alt="" class="img" />
           </template>
@@ -300,34 +295,24 @@
         <el-table-column
           label="昵称"
           prop="nickname"
-          width="120"
           align="center"
+          min-height="280"
+          :show-overflow-tooltip="true"
         ></el-table-column>
-        <el-table-column
-          label="分组"
-          prop="group_id"
-          width="120"
-          align="center"
-        >
+        <el-table-column label="分组" prop="group_id" align="center">
         </el-table-column>
-        <el-table-column label="手机号" prop="phone" width="120" align="center">
+        <el-table-column label="手机号" prop="phone" align="center">
         </el-table-column>
-        <el-table-column
-          label="用户类型"
-          prop="user_type"
-          width="120"
-          align="center"
-        >
+        <el-table-column label="用户类型" prop="user_type" align="center">
+        </el-table-column>
+        <el-table-column label="余额" prop="exp" sortable align="center">
         </el-table-column>
         <el-table-column
-          label="余额"
-          prop="exp"
-          sortable
-          width="120"
+          fixed="right"
+          label="操作"
           align="center"
+          width="120px"
         >
-        </el-table-column>
-        <el-table-column fixed="right" label="操作" width="150" align="center">
           <template #default="scope">
             <el-button type="text" size="small" @click="edit(scope.row)"
               >编辑</el-button
@@ -364,148 +349,10 @@
       </div>
     </el-card>
 
-    <!-- 添加用户的对话框 -->
-    <el-dialog v-model:visible="dialogFormVis" title="添加用户" width="70%">
-      <template #default>
-        <el-form :model="form">
-          <el-form-item
-            label="真实姓名"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入真实姓名"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="* 手机号码"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入手机号码"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="登录密码"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入登录密码"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="确认密码"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请再次确认密码"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="身份证号"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入身份证号"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="用户地址"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入用户地址"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="用户备注"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入用户备注"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="用户分组"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入用户分组"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="用户标签"
-            :label-width="formLabelWidth"
-            size="small"
-          >
-            <el-input
-              v-model="form.name"
-              autocomplete="off"
-              placeholder="请输入用户标签"
-            ></el-input>
-          </el-form-item>
-          <el-form-item label="状态" :label-width="formLabelWidth" size="small">
-            <el-radio v-model="radio" label="1">开启</el-radio>
-            <el-radio v-model="radio" label="2">锁定</el-radio>
-          </el-form-item>
-        </el-form>
-      </template>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button
-            type="primary"
-            size="small"
-            style="width: 100%"
-            @click="dialogFormVisible = false"
-            >提 交</el-button
-          >
-        </div>
-      </template>
-    </el-dialog>
-
     <!-- 修改用户的对话框 -->
     <el-dialog v-model:visible="editDialog" title="编辑">
       <template #default>
         <el-form :model="changeData">
-          <el-form-item label="用户编号" :label-width="formLabelWidth">
-            <el-input v-model="changeData.uid" :disabled="true"></el-input>
-          </el-form-item>
-          <el-form-item label="真实姓名" :label-width="formLabelWidth">
-            <el-input
-              v-model="changeData.real_name"
-              autocomplete="off"
-            ></el-input>
-          </el-form-item>
-          <el-form-item label="手机号码" :label-width="formLabelWidth">
-            <el-input
-              v-model="changeData.phone"
-              autocomplete="off"
-              :disabled="true"
-            ></el-input>
-          </el-form-item>
           <el-form-item label="昵称" :label-width="formLabelWidth">
             <el-input
               v-model="changeData.nickname"
@@ -526,6 +373,13 @@
         </div>
       </template>
     </el-dialog>
+
+    <!-- 添加用户 -->
+    <add-user-modal
+      v-if="addDialog"
+      v-model:addDialog="addDialog"
+      :add-user-form="addUserForm"
+    ></add-user-modal>
   </div>
 </template>
 
@@ -533,7 +387,8 @@
 import { defineComponent, reactive, ref, toRefs } from "vue";
 import { Message } from "element3";
 import city from "@/utils/city";
-import { userList, editUserData } from "@/api/user";
+import { userList, editUserData, getUserSaveForm } from "@/api/user";
+import AddUserModal from "@/components/AddUserModal.vue";
 
 interface UserFrom {
   label_id: string;
@@ -552,19 +407,23 @@ interface UserFrom {
 }
 
 export default defineComponent({
+  components: {
+    AddUserModal,
+  },
   setup() {
     const radio = ref("2");
-    let state = reactive({
+    let editUserModal = reactive({
       editDialog: false,
       changeData: {},
       formLabelWidth: "120px",
     });
-    let dialogForm = reactive({
-      dialogFormVis: false,
-      form: {},
+    let addModalData = reactive({
+      addDialog: false,
+      addUserForm: [],
       formLabelWidth: "120px",
     });
 
+    // 处理分页
     const handleSizeChange = (size: number) => {
       console.log(`每页 ${size} 条`);
       selectionList.value = [];
@@ -577,15 +436,16 @@ export default defineComponent({
       userFrom.page = page;
     };
 
+    // 级联城市数据
     const addressData = city;
 
     let userLists = ref([]);
 
-    let collapse = ref<boolean>(false);
-    let group_id = ref<string>("1");
-    let label_id = ref<string>("1");
-    let field_key = ref<string>("");
-    let user_time_type = ref<string>("");
+    let collapse = ref(false);
+    let group_id = ref("");
+    let label_id = ref("");
+    let field_key = ref("");
+    let user_time_type = ref("");
 
     let headeNum = ref([
       { type: "", name: "全部" },
@@ -615,6 +475,7 @@ export default defineComponent({
     let selectionList = ref([]);
     let address = ref([]);
 
+    // 获取用户数据
     const getList = () => {
       userFrom.user_type = userFrom.user_type || "";
       userFrom.sex = userFrom.sex || "";
@@ -631,6 +492,7 @@ export default defineComponent({
       });
     };
 
+    // 切换tab
     const onClickTab = (type: any) => {
       userFrom.page = 1;
       userFrom.user_type = type.name;
@@ -711,16 +573,16 @@ export default defineComponent({
 
     // 获取编辑表单数据
     const edit = (row: any) => {
-      state.editDialog = true;
-      // 修改state.changeData的值
-      Object.assign(state.changeData, row);
+      editUserModal.editDialog = true;
+      // editUserModal.changeData的值
+      Object.assign(editUserModal.changeData, row);
       console.log(row);
     };
 
     // 修改表单数据
     const changeUserData = () => {
-      state.editDialog = false;
-      editUserData(state.changeData).then((res: any) => {
+      editUserModal.editDialog = false;
+      editUserData(editUserModal.changeData).then((res: any) => {
         console.log(res);
         userLists.value = res.list;
       });
@@ -728,7 +590,19 @@ export default defineComponent({
 
     // 添加用户
     const save = () => {
-      dialogForm.dialogFormVis = true;
+      getUserSaveForm().then(({ data }) => {
+        console.log("data", data);
+        if (data.status == 200) {
+          addModalData.addDialog = true;
+          addModalData.addUserForm = data.data.rules;
+        } else {
+          Message({
+            message: data.data.info,
+            type: "warning",
+            duration: 3000,
+          });
+        }
+      });
     };
 
     //将时间戳转换成正常时间格式
@@ -774,8 +648,8 @@ export default defineComponent({
       save,
       edit,
       changeUserData,
-      ...toRefs(state),
-      ...toRefs(dialogForm),
+      ...toRefs(editUserModal),
+      ...toRefs(addModalData),
     };
   },
 });

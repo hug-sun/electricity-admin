@@ -7,6 +7,7 @@ import axios from "axios";
 axios.defaults.baseURL = "/";
 
 export async function userList(data: any) {
+  console.log(data);
   const rs = await axios.get("/user/user", {
     params: { ...data },
   });
@@ -27,5 +28,13 @@ export async function editUserData(data: any) {
       rs = data;
     });
 
+  return rs;
+}
+
+/**
+ * 添加用户
+ */
+export async function getUserSaveForm() {
+  const rs = await axios.get("/user/user/create");
   return rs;
 }

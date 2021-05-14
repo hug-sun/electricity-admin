@@ -475,4 +475,132 @@ export const handlers = [
       })
     );
   }),
+
+  // 添加用户
+  rest.get("/user/user/create", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        status: 200,
+        msg: "ok",
+        data: {
+          rules: [
+            {
+              type: "input",
+              field: "real_name",
+              value: "",
+              title: "真实姓名",
+              props: { type: "text", placeholder: "请输入真实姓名" },
+            },
+            {
+              type: "input",
+              field: "phone",
+              value: "",
+              title: "手机号码",
+              props: { type: "text", placeholder: "请输入手机号码" },
+              validate: [
+                {
+                  message: "请输入手机号码",
+                  required: true,
+                  type: "string",
+                  trigger: "change",
+                },
+              ],
+            },
+            {
+              type: "input",
+              field: "pwd",
+              value: "",
+              title: "登录密码",
+              props: { type: "password", placeholder: "请输入登录密码" },
+            },
+            {
+              type: "input",
+              field: "true_pwd",
+              value: "",
+              title: "确认密码",
+              props: { type: "password", placeholder: "请再次确认密码" },
+            },
+            {
+              type: "input",
+              field: "card_id",
+              value: "",
+              title: "身份证号",
+              props: { type: "text", placeholder: "请输入身份证号" },
+            },
+            {
+              type: "input",
+              field: "addres",
+              value: "",
+              title: "用户地址",
+              props: { type: "text", placeholder: "请输入用户地址" },
+            },
+            {
+              type: "input",
+              field: "mark",
+              value: "",
+              title: "用户备注",
+              props: { type: "textarea", placeholder: "请输入用户备注" },
+            },
+            {
+              type: "select",
+              field: "group_id",
+              value: "",
+              title: "用户分组",
+              props: {
+                multiple: false,
+                placeholder: "请选择用户分组",
+                filterable: true,
+              },
+              options: [
+                { value: 1, label: "大客户" },
+                { value: 2, label: "中客户" },
+                { value: 4, label: "小客户" },
+                { value: 5, label: "未知" },
+              ],
+            },
+            {
+              type: "select",
+              field: "label_id",
+              value: "",
+              title: "用户标签",
+              props: {
+                multiple: true,
+                placeholder: "请选择用户标签",
+                filterable: true,
+              },
+              options: [
+                { value: 1, label: "A类客户" },
+                { value: 2, label: "B类客户" },
+                { value: 3, label: "C类客户" },
+                { value: 4, label: "意向客户" },
+                { value: 5, label: "已成交客户" },
+                { value: 6, label: "退款客户" },
+                { value: 7, label: "百度" },
+                { value: 8, label: "淘宝" },
+                { value: 9, label: "朋友介绍" },
+                { value: 10, label: "推广客户" },
+              ],
+            },
+            {
+              type: "radio",
+              field: "status",
+              value: 1,
+              title: "状态",
+              props: {},
+              options: [
+                { value: 1, label: "开启" },
+                { value: 0, label: "锁定" },
+              ],
+            },
+          ],
+          title: "添加用户",
+          action: "/user/user",
+          method: "POST",
+          info: "",
+          status: true,
+        },
+      })
+    );
+  }),
 ];

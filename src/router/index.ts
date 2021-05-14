@@ -8,7 +8,7 @@ const routers: any = [
   //   path: '/product',
   //   redirect: '/product_list',
   // },
-  user,
+  ...user,
   ...orderRoutes,
   ...product,
 ];
