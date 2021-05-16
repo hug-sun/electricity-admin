@@ -5,10 +5,8 @@ const orderRoutes = [
     component: BasicLayout,
     children: [
       {
-        path: "/order",
-        children: [
-          { path: "/list", component: () => import("@/view/order/List.vue") },
-        ],
+        path: "/admin/order/list",
+        component: () => import("@/view/order/List.vue"),
       },
     ],
   },

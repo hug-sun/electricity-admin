@@ -2,12 +2,12 @@
   <div class="search-input-box">
     搜索：
     <el-input
-      v-model="input3"
+      v-model="searchValue"
       placeholder="请输入内容"
       class="input-with-select"
     >
       <template #prepend>
-        <el-select v-model="select" style="width: 140px" size="small">
+        <el-select v-model="searchKeyword" style="width: 140px" size="small">
           <el-option value="all" label="全部"></el-option>
           <el-option value="orderID" label="订单号"></el-option>
           <el-option value="uid" label="UID"></el-option>
@@ -17,22 +17,29 @@
         </el-select>
       </template>
       <template #append>
-        <el-button icon="el-icon-search"></el-button>
+        <el-button icon="el-icon-search" @click="searchHandle"></el-button>
       </template>
     </el-input>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, onMounted } from "vue";
 export default {
   setup() {
     const data = reactive({
-      input3: "",
-      select: "",
+      searchValue: "",
+      searchKeyword: "",
+    });
+    const searchHandle = () => {
+      console.log(data.searchValue, data.searchKeyword);
+    };
+    onMounted(() => {
+      data.searchKeyword = "all";
     });
     return {
       ...toRefs(data),
+      searchHandle,
     };
   },
 };

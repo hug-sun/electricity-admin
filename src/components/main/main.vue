@@ -38,7 +38,7 @@
                 <span>订单</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="3-1">订单管理</el-menu-item>
+                <el-menu-item index="order/list">订单管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="4">
