@@ -47,9 +47,9 @@
                 <span>用户</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="4-1">用户管理</el-menu-item>
-                <el-menu-item index="4-2">用户分组</el-menu-item>
-                <el-menu-item index="4-3">用户标签</el-menu-item>
+                <el-menu-item index="/admin/user/list">用户管理</el-menu-item>
+                <el-menu-item index="/admin/user/group">用户分组</el-menu-item>
+                <el-menu-item index="/admin/user/label">用户标签</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
