@@ -2,8 +2,8 @@
   <div>
     <el-dialog v-model:visible="innerAddDialog" title="添加用户">
       <div v-for="(item, index) in addUserForm" :key="index">
-        <el-form ref="form" :model="item" :rules="rules" label-width="auto">
-          <el-form-item :label="item.title">
+        <el-form :model="item" :rules="rules" label-width="100px">
+          <el-form-item :label="item.title" :prop="item.field">
             <el-input
               v-if="item.type === 'input'"
               v-model="item.value"
@@ -15,13 +15,16 @@
               v-if="item.type === 'select'"
               v-model="item.value"
               size="small"
+              v-bind="{ multiple: item.props.multiple }"
+              value-key="value"
             >
               <el-option
-                v-for="(subItem, index) in item.options"
-                :key="index"
+                v-for="subItem in item.options"
+                :key="subItem.value"
                 :label="subItem.label"
-                :value="subItem.value"
-              ></el-option>
+                :value="subItem"
+                >{{ subItem.label }}</el-option
+              >
             </el-select>
             <el-radio-group
               v-if="item.type === 'radio'"
@@ -44,7 +47,7 @@
           type="primary"
           size="small"
           style="width: 100%"
-          @click="addUserData('formData')"
+          @click="addUserData()"
           >提 交</el-button
         >
       </div>
@@ -53,13 +56,13 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs, onMounted, computed } from "vue";
+import { reactive, computed } from "vue";
 import { userList } from "@/api/user";
+import { Message } from "element3";
 export default {
   props: ["addDialog", "addUserForm"],
   emits: ["update:addDialog"],
   setup(props, { emit }) {
-    const form = ref(null);
     let formData = reactive({});
     let rules = reactive({});
     const innerAddDialog = computed({
@@ -71,39 +74,35 @@ export default {
       },
     });
 
-    onMounted(() => {
-      // 验证规则
-      props.addUserForm.forEach((item) => {
-        rules[item.field] = item.validate;
-      });
-      console.log(rules);
+    // 获取创建表单的数据
+    props.addUserForm.forEach((item) => {
+      rules[item.field] = item.validate;
     });
 
     // 提交添加的用户信息
     const addUserData = () => {
+      // 获取填写的表单数据的信息
       props.addUserForm.forEach((item) => {
         formData[item.field] = item.value;
-      });
-      console.log(formData);
-
-      form.value.validate((valid) => {
-        if (valid) {
-          alert("submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
       });
 
       userList(formData).then((res) => {
         let data = res.data;
-        // console.log(data);
+        // 添加成功
+        if (data.status == 200) {
+          emit("add-user");
+          emit("update:addDialog", false);
+          Message({
+            message: data.msg,
+            type: "success",
+            duration: 2000,
+          });
+        }
         // userLists.value = data.list;
       });
     };
 
     return {
-      form,
       addUserData,
       formData,
       rules,

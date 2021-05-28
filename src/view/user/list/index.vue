@@ -319,15 +319,15 @@
             >
 
             <el-divider direction="vertical"></el-divider>
-            <el-dropdown>
+            <el-dropdown @command="handleCommand(scope.row, $event)">
               <span class="el-dropdown-link">
                 更多<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu style="font-size: 12px">
-                <el-dropdown-item name="1">账户详情</el-dropdown-item>
-                <el-dropdown-item name="2">积分余额</el-dropdown-item>
-                <el-dropdown-item name="5">设置分组</el-dropdown-item>
-                <el-dropdown-item name="6">设置标签</el-dropdown-item>
+                <el-dropdown-item command="1">账户详情</el-dropdown-item>
+                <el-dropdown-item command="2">积分余额</el-dropdown-item>
+                <el-dropdown-item command="5">设置分组</el-dropdown-item>
+                <el-dropdown-item command="6">设置标签</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </template>
@@ -350,45 +350,34 @@
     </el-card>
 
     <!-- 修改用户的对话框 -->
-    <el-dialog v-model:visible="editDialog" title="编辑">
-      <template #default>
-        <el-form :model="changeData">
-          <el-form-item label="昵称" :label-width="formLabelWidth">
-            <el-input
-              v-model="changeData.nickname"
-              autocomplete="off"
-            ></el-input>
-          </el-form-item>
-        </el-form>
-      </template>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button
-            type="primary"
-            size="small"
-            style="width: 100%"
-            @click="changeUserData"
-            >提 交</el-button
-          >
-        </div>
-      </template>
-    </el-dialog>
+    <edit-user-model
+      v-if="editDialog"
+      v-model:editDialog="editDialog"
+      :change-data="changeData"
+      :form-label-width="formLabelWidth"
+    ></edit-user-model>
 
     <!-- 添加用户 -->
     <add-user-modal
       v-if="addDialog"
       v-model:addDialog="addDialog"
       :add-user-form="addUserForm"
+      @add-user="addUser"
     ></add-user-modal>
+
+    <!-- 会员详情-->
+    <user-details ref="userDetails"></user-details>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs } from "vue";
+import { defineComponent, reactive, ref, toRefs, onMounted } from "vue";
 import { Message } from "element3";
 import city from "@/utils/city";
 import { userList, editUserData, getUserSaveForm } from "@/api/user";
 import AddUserModal from "@/components/AddUserModal.vue";
+import EditUserModel from "@/components/EditUserModel.vue";
+import userDetails from "./handle/userDetails.vue";
 
 interface UserFrom {
   label_id: string;
@@ -409,8 +398,11 @@ interface UserFrom {
 export default defineComponent({
   components: {
     AddUserModal,
+    EditUserModel,
+    userDetails,
   },
   setup() {
+    const userDetails = ref();
     const radio = ref("2");
     let editUserModal = reactive({
       editDialog: false,
@@ -423,16 +415,19 @@ export default defineComponent({
       formLabelWidth: "120px",
     });
 
+    onMounted(() => {
+      // DOM元素将在初始渲染后分配给ref
+      console.log(userDetails.value); // <div>这是根元素</div>
+    });
+
     // 处理分页
     const handleSizeChange = (size: number) => {
-      console.log(`每页 ${size} 条`);
       selectionList.value = [];
       userFrom.page = size;
       getList();
     };
 
     const handleCurrentChange = (page: number) => {
-      console.log(`当前页: ${page}`);
       userFrom.page = page;
     };
 
@@ -576,7 +571,7 @@ export default defineComponent({
       editUserModal.editDialog = true;
       // editUserModal.changeData的值
       Object.assign(editUserModal.changeData, row);
-      console.log(row);
+      console.log(editUserModal.editDialog);
     };
 
     // 修改表单数据
@@ -592,6 +587,7 @@ export default defineComponent({
     const save = () => {
       getUserSaveForm().then(({ data }) => {
         console.log("data", data);
+        // 创建添加用户的表单
         if (data.status == 200) {
           addModalData.addDialog = true;
           addModalData.addUserForm = data.data.rules;
@@ -603,6 +599,28 @@ export default defineComponent({
           });
         }
       });
+    };
+    const addUser = () => {
+      getList();
+    };
+
+    // 下拉菜单操作
+    const handleCommand = (row: any, command: string) => {
+      switch (command) {
+        case "1":
+          userDetails.value.modals = true;
+          userDetails.value.getDetails(row.uid);
+          break;
+        case "2":
+          console.log("点击了积分余额");
+          break;
+        case "5":
+          console.log("点击了设置分组");
+          break;
+        case "6":
+          console.log("点击了设置标签");
+          break;
+      }
     };
 
     //将时间戳转换成正常时间格式
@@ -648,6 +666,9 @@ export default defineComponent({
       save,
       edit,
       changeUserData,
+      addUser,
+      handleCommand,
+      userDetails,
       ...toRefs(editUserModal),
       ...toRefs(addModalData),
     };

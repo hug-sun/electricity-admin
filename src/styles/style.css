@@ -469,8 +469,9 @@ body {
 .vxe-table--body td:nth-of-type(1) {
   padding-left: 10px !important;
 }
-.ivu-modal-header {
+.el-dialog__header {
   background: #fafafa;
+  border-bottom: 1px solid #e8eaec;
 }
 .ivu-mb,
 .ivu-mb-16 {
@@ -629,4 +630,9 @@ body {
 .none-radius .ivu-modal-mask,
 .label-box .ivu-modal-mask {
   background-color: transparent;
+}
+
+.el-pagination__jump .el-input {
+  line-height: 22px !important;
+  width: 50px !important;
 }
